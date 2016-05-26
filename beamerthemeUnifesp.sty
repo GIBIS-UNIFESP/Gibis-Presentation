@@ -1,0 +1,110 @@
+\usetheme{Roch}
+
+\RequirePackage{pgf}
+
+\pgfdeclareimage[width=1.0\paperwidth]{oxygen-header}{unifesp-header4}
+
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamercovered{transparent}
+
+\beamer@headheight=0.13\paperwidth
+
+\definecolor{oxygenorange}{HTML}{F7800A}
+\definecolor{oxygengray}{HTML}{686868}
+\definecolor{oxygenlightgray}{HTML}{EEEEEE}
+\definecolor{oxygenblue}{HTML}{236EAF}
+\definecolor{oxygengreen}{HTML}{214478}
+
+\setbeamercolor*{Title bar}{fg=white}
+\setbeamercolor*{Location bar}{fg=oxygengreen,bg=oxygenlightgray}
+\setbeamercolor*{frametitle}{parent=Title bar}
+\setbeamercolor*{block title}{bg=oxygengreen,fg=white}
+\setbeamercolor*{block body}{bg=oxygenlightgray,fg=oxygengray}
+\setbeamercolor*{normal text}{bg=white,fg=oxygengray}
+\setbeamercolor*{section in head/foot}{bg=oxygengreen,fg=white}
+
+\setbeamercolor{example text}{fg=blue!50!black}
+\setbeamercolor{block body example}{}
+\setbeamercolor{block title example}{parent=example text}
+
+
+% \setbeamercolor{block title example}{bg=blue}
+% \setbeamercolor{block body example}{bg=blue!10}
+% \setbeamercolor{block text example}{fg=blue!50!black}
+
+
+\AtBeginSection[]{
+	\begin{frame}
+		\vfill
+		\centering
+		\begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+			\usebeamerfont{title}\insertsectionhead\par%
+		\end{beamercolorbox}
+		\vfill
+	\end{frame}
+}
+
+
+\usecolortheme[named=oxygengreen]{structure}
+
+\setbeamerfont{section in head/foot}{size=\tiny,series=\normalfont}
+\setbeamerfont{frametitle}{size=\Large}
+
+%\setbeamertemplate{headline}
+\setbeamertemplate{frametitle}
+{
+  \vskip-0.25\beamer@headheight
+  \vskip-\baselineskip
+  \vskip-0.2cm
+  \hskip-0.5cm\usebeamerfont*{frametitle}\insertframetitle
+  \vskip-0.10em
+  \hskip-0.45cm\usebeamerfont*{framesubtitle}\insertframesubtitle
+}
+
+\setbeamertemplate{headline}
+{
+  \pgfuseimage{oxygen-header}
+  \vskip -1.95cm
+  \linethickness{0pt}
+
+  \framelatex{
+  \begin{beamercolorbox}[wd=\paperwidth,ht=0.3\beamer@headheight]{Title bar}
+    \usebeamerfont{section in head/foot}%
+    \insertsectionnavigationhorizontal{0pt}{\hskip0.22cm}{}%
+  \end{beamercolorbox}}
+
+  \framelatex{
+  \begin{beamercolorbox}[wd=\paperwidth,ht=0.7\beamer@headheight]{Title bar}
+  \end{beamercolorbox}}
+}
+
+\setbeamertemplate{footline}
+{
+  \linethickness{0pt}
+  \framelatex{
+  \begin{beamercolorbox}[leftskip=.3cm,wd=\paperwidth,ht=0.3\beamer@headheight,sep=0.1cm]{Location bar}
+    \usebeamerfont{section in head/foot}%
+    \insertshortauthor~|~\insertshorttitle
+    \hfill
+    \insertframenumber/\inserttotalframenumber
+  \end{beamercolorbox}}
+}
+
+% Definindo novas cores
+\definecolor{verde}{rgb}{0,0.5,0}
+% Configurando layout para mostrar codigos C++
+\usepackage{listings}
+\lstset{
+	basicstyle=\ttfamily\small, 
+	keywordstyle=\color{blue}, 
+	stringstyle=\color{verde}, 
+	commentstyle=\color{gray}, 
+	breakatwhitespace,
+	language=C++,
+	columns=fullflexible,
+	keepspaces,
+	breaklines,
+	tabsize=3, 
+	showstringspaces=false,
+	extendedchars=true
+}
